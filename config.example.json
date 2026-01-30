@@ -1,0 +1,6 @@
+{
+  "sessionKey": "0x...",
+  "droneId": 1,
+  "autoRepurchase": false,
+  "turboThreshold": 100
+}

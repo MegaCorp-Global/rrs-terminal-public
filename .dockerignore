@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output (we build inside container)
+dist/
+
+# IDE
+.cursor/
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment (secrets should be passed via env vars)
+.env
+.env.local
+
+# Git
+.git/
+.gitignore
+
+# Documentation (not needed in container)
+README.md
+LICENSE
+docs/
+
+# Deploy configs (not needed inside the container)
+deploy/

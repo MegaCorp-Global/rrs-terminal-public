@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: rrs-terminal
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: SESSION_KEY
+        sync: false
+      - key: DRONE_ID
+        sync: false
+      - key: NODE_ENV
+        value: production

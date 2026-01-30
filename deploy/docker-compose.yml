@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  rrs-terminal:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      - SESSION_KEY=${SESSION_KEY}
+      - DRONE_ID=${DRONE_ID}
+      - NODE_ENV=production
+    restart: on-failure:10
