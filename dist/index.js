@@ -1128,19 +1128,25 @@ function stopMining(ctx, batteryDepleted = false) {
   ctx.running = false;
   const runtime = formatDuration(Date.now() - ctx.stats.startTime);
   const rate = ctx.stats.blocksDestroyed / ((Date.now() - ctx.stats.startTime) / 1e3);
-  logToFile("INFO", batteryDepleted ? "Shift ended - battery depleted" : "Mining session stopped", {
-    blocksDestroyed: ctx.stats.blocksDestroyed,
-    blocksAlreadyDestroyed: ctx.stats.blocksAlreadyDestroyed,
-    errors: ctx.stats.errors,
-    runtime,
-    bps: rate.toFixed(2)
-  });
+  logToFile(
+    "INFO",
+    batteryDepleted ? "Shift ended - battery depleted" : "Mining session stopped",
+    {
+      blocksDestroyed: ctx.stats.blocksDestroyed,
+      blocksAlreadyDestroyed: ctx.stats.blocksAlreadyDestroyed,
+      errors: ctx.stats.errors,
+      runtime,
+      bps: rate.toFixed(2)
+    }
+  );
   console.log("");
   if (batteryDepleted) {
     console.log(chalk2.red.bold("  \u26A0  OPERATOR LICENSE BATTERY DEPLETED"));
     console.log(chalk2.dim("  Reclamation shift complete."));
     console.log("");
-    console.log(chalk2.yellow("  Your shift has ended. Return to megacorp.global"));
+    console.log(
+      chalk2.yellow("  Your shift has ended. Return to megacorp.global")
+    );
     console.log(chalk2.yellow("  to join the queue for your next shift."));
   } else {
     console.log(chalk2.yellow.bold("  \u23F9  Reclamation Operations Suspended"));

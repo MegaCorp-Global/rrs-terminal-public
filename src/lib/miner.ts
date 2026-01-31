@@ -367,7 +367,11 @@ function renderDashboard(ctx: MinerContext): void {
   const filledWidth = Math.round((batteryPercent / 100) * barWidth);
   const emptyWidth = barWidth - filledWidth;
   const batteryColor =
-    batteryPercent > 30 ? chalk.green : batteryPercent > 10 ? chalk.yellow : chalk.red;
+    batteryPercent > 30
+      ? chalk.green
+      : batteryPercent > 10
+        ? chalk.yellow
+        : chalk.red;
   const batteryBar =
     batteryColor("█".repeat(filledWidth)) + chalk.dim("░".repeat(emptyWidth));
 
@@ -606,28 +610,39 @@ export async function startMining(ctx: MinerContext): Promise<void> {
 /**
  * Stop the mining loop gracefully
  */
-export function stopMining(ctx: MinerContext, batteryDepleted: boolean = false): void {
+export function stopMining(
+  ctx: MinerContext,
+  batteryDepleted: boolean = false,
+): void {
   ctx.running = false;
 
   const runtime = formatDuration(Date.now() - ctx.stats.startTime);
   const rate =
     ctx.stats.blocksDestroyed / ((Date.now() - ctx.stats.startTime) / 1000);
 
-  logToFile("INFO", batteryDepleted ? "Shift ended - battery depleted" : "Mining session stopped", {
-    blocksDestroyed: ctx.stats.blocksDestroyed,
-    blocksAlreadyDestroyed: ctx.stats.blocksAlreadyDestroyed,
-    errors: ctx.stats.errors,
-    runtime,
-    bps: rate.toFixed(2),
-  });
+  logToFile(
+    "INFO",
+    batteryDepleted
+      ? "Shift ended - battery depleted"
+      : "Mining session stopped",
+    {
+      blocksDestroyed: ctx.stats.blocksDestroyed,
+      blocksAlreadyDestroyed: ctx.stats.blocksAlreadyDestroyed,
+      errors: ctx.stats.errors,
+      runtime,
+      bps: rate.toFixed(2),
+    },
+  );
 
   console.log(""); // Add some space after dashboard
-  
+
   if (batteryDepleted) {
     console.log(chalk.red.bold("  ⚠  OPERATOR LICENSE BATTERY DEPLETED"));
     console.log(chalk.dim("  Reclamation shift complete."));
     console.log("");
-    console.log(chalk.yellow("  Your shift has ended. Return to megacorp.global"));
+    console.log(
+      chalk.yellow("  Your shift has ended. Return to megacorp.global"),
+    );
     console.log(chalk.yellow("  to join the queue for your next shift."));
   } else {
     console.log(chalk.yellow.bold("  ⏹  Reclamation Operations Suspended"));
