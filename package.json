@@ -24,7 +24,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MegaCorp-Global/rrs-terminal-public.git"
+    "url": "git+https://github.com/megacorp-global/rrs-terminal.git"
   },
   "homepage": "https://megacorp.global/persistence",
   "dependencies": {

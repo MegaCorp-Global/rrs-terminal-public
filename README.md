@@ -146,7 +146,7 @@ docker run -e SESSION_KEY=0x... -e DRONE_ID=1247 rrs-terminal
 ### VPS / Manual
 
 ```bash
-git clone https://github.com/MegaCorp-Global/rrs-terminal.git
+git clone https://github.com/megacorp-global/rrs-terminal-public.git
 cd rrs-terminal
 npm install
 npm run build
@@ -214,7 +214,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 - [MegaCube](https://megacorp.global) — Main interface
 - [Project Persistence](https://megacorp.global/persistence) — Remote Reclamation Services
-- [GitHub](https://github.com/MegaCorp-Global/rrs-terminal) — Source code
+- [GitHub](https://github.com/megacorp-global/rrs-terminal-public) — Source code
 
 ---
 

@@ -158,7 +158,7 @@ For 24/7 mining, deploy to Railway, Render, or any VPS:
 
 ```bash
 # Clone and configure
-git clone https://github.com/MegaCorp-Global/rrs-terminal
+git clone https://github.com/megacorp-global/rrs-terminal-public
 cd rrs-terminal
 npm install
 
