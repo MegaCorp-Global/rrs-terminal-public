@@ -12,7 +12,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import type { NetworkConfig, CapabilityBundle } from "../types.js";
 
 /**
- * ABI for MegaCubeV4 contract - only the functions we need
+ * ABI for MegaCubeV5 contract - only the functions we need
  */
 const MEGACUBE_ABI = [
   {
@@ -198,7 +198,7 @@ export function createContractClient(
     publicClient,
     walletClient,
     account,
-    megaCubeAddress: networkConfig.contracts.MegaCubeV4
+    megaCubeAddress: networkConfig.contracts.MegaCubeV5
       .address as `0x${string}`,
     droneAddress: networkConfig.contracts.OperatorLicense
       .address as `0x${string}`,

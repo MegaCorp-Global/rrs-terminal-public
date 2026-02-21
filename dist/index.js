@@ -160,9 +160,9 @@ async function fetchNetworkConfig() {
       "Invalid network config: missing network.rpcUrl or network.chainId"
     );
   }
-  if (!data.contracts?.MegaCubeV4?.address) {
+  if (!data.contracts?.MegaCubeV5?.address) {
     throw new Error(
-      "Invalid network config: missing contracts.MegaCubeV4.address"
+      "Invalid network config: missing contracts.MegaCubeV5.address"
     );
   }
   if (!data.contracts?.OperatorLicense?.address) {
@@ -179,7 +179,7 @@ async function fetchNetworkConfig() {
       explorer: data.network.explorer
     },
     contracts: {
-      MegaCubeV4: { address: data.contracts.MegaCubeV4.address },
+      MegaCubeV5: { address: data.contracts.MegaCubeV5.address },
       OperatorLicense: {
         address: data.contracts.OperatorLicense.address
       },
@@ -352,7 +352,7 @@ function createContractClient(networkConfig, sessionKey) {
     publicClient,
     walletClient,
     account,
-    megaCubeAddress: networkConfig.contracts.MegaCubeV4.address,
+    megaCubeAddress: networkConfig.contracts.MegaCubeV5.address,
     droneAddress: networkConfig.contracts.OperatorLicense.address,
     cubedAddress: networkConfig.contracts.Cubed.address
   };

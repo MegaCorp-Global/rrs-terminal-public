@@ -24,7 +24,7 @@ export interface NetworkConfig {
     explorer: string;
   };
   contracts: {
-    MegaCubeV4: { address: string };
+    MegaCubeV5: { address: string };
     OperatorLicense: { address: string };
     ArtifactNFT: { address: string };
     Cubed: { address: string };
