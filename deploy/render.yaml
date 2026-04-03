@@ -2,7 +2,7 @@ services:
   - type: worker
     name: rrs-terminal
     runtime: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     startCommand: npm start
     envVars:
       - key: SESSION_KEY
